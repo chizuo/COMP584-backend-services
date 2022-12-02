@@ -1,0 +1,31 @@
+{
+  "name": "comp584-backend-services",
+  "version": "1.0.0",
+  "description": "web service component for COMP584 term project",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest test.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chizuo/COMP584-backend-services.git"
+  },
+  "keywords": [
+    "express",
+    "node",
+    "javascript"
+  ],
+  "author": "Jonathan Chua, Deni Cabaravdic, Aaron Madrid, and David McNeary",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chizuo/COMP584-backend-services/issues"
+  },
+  "homepage": "https://github.com/chizuo/COMP584-backend-services#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
