@@ -1,7 +1,7 @@
 const express = require('express');
 const routes = require('./routes');
-const jwt = require('utils/jwt');
-const errorHandler = require('utils/error-handler');
+const jwt = require('./utils/jwt');
+const errorHandler = require('./utils/errorHandler');
 const server = express();
 
 

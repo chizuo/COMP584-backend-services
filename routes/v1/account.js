@@ -8,6 +8,7 @@ const userController = require('../../controllers/user');
 
 // POST end point for account sign-up 
 router.post('/register', async (req,res,next) => {
+		console.log(req.body)
 		userController.create(req.body)
 		.then(user => res.status(200).json(user))
 		.catch(err => next(err));
@@ -19,3 +20,5 @@ router.get('/login', async (req, res, next) => {
 		.then(user => user ? res.json(user) : res.status(400).json({ message: 'Username or password is incorrect' }))
 		.catch(err => next(err));
 });
+
+module.exports = router;

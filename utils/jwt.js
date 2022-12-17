@@ -1,19 +1,19 @@
 const expressJwt = require('express-jwt');
-const userService = require('./userService');
+const userController = require('../controllers/user');
 
-function jwt() {
+function jwtHelper() {
     const secret = "LOL MUCH SECRET";
     return expressJwt({ secret, algorithms: ['HS256'], isRevoked }).unless({
         path: [
             // public routes that don't require authentication
-            '/users/authenticate',
-            '/users/register'
+            '/v1/account/login',
+            '/v1/account/register'
         ]
     });
 }
 
 async function isRevoked(req, payload, done) {
-    const user = await userService.getById(payload.sub);
+    const user = await userController.getById(payload.sub);
 
     // revoke token if user no longer exists
     if (!user) {
@@ -23,4 +23,4 @@ async function isRevoked(req, payload, done) {
     done();
 };
 
-module.exports = jwt;
+module.exports = jwtHelper;

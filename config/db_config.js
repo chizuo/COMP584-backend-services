@@ -1,8 +1,8 @@
 module.exports = {
   development: {
-    username: process.env.DEV_DB_USERNAME,
-    password: process.env.DEV_DB_PASSWORD,
-    database: process.env.DEV_DB_NAME,
+    username: 'root',
+    password: 'root',
+    database: 'comp_584_db',
     host: '127.0.0.1',
     port: 3306,
     dialect: 'mariadb'
