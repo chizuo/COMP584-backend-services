@@ -1,5 +1,3 @@
-const fs = require('fs');
-
 module.exports = {
   development: {
     username: process.env.DEV_DB_USERNAME,
@@ -7,7 +5,7 @@ module.exports = {
     database: process.env.DEV_DB_NAME,
     host: '127.0.0.1',
     port: 3306,
-    dialect: 'mysql'
+    dialect: 'mariadb'
   },
   test: {
     username: process.env.CI_DB_USERNAME,
@@ -15,7 +13,7 @@ module.exports = {
     database: process.env.CI_DB_NAME,
     host: '127.0.0.1',
     port: 3306,
-    dialect: 'mysql'
+    dialect: 'mariadb'
   },
   production: {
     username: process.env.PROD_DB_USERNAME,
@@ -23,6 +21,6 @@ module.exports = {
     database: process.env.PROD_DB_NAME,
     host: process.env.PROD_DB_HOSTNAME,
     port: process.env.PROD_DB_PORT,
-    dialect: 'mysql'
+    dialect: 'mariadb'
   }
 };

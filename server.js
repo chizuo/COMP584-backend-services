@@ -1,9 +1,15 @@
 const express = require('express');
-const account = require('./routes/v1/account');
+const routes = require('./routes');
+const jwt = require('utils/jwt');
+const errorHandler = require('utils/error-handler');
 const server = express();
 
+
+server.use(express.urlencoded({ extended: false }));
 server.use(express.json());
-server.use('/v1', account);
+server.use(jwt());
+server.use('/', routes);
+server.use(errorHandler);
 
 // Exporting for unit tests rather than running as a process and listening through the port.
 module.exports = server;
