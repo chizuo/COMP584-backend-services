@@ -7,7 +7,8 @@ function jwtHelper() {
         path: [
             // public routes that don't require authentication
             '/v1/account/login',
-            '/v1/account/register'
+            '/v1/account/register',
+            '/v1/bikes/dummy/data'
         ]
     });
 }
