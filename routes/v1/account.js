@@ -2,8 +2,6 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const router = express.Router();
 const userController = require('../../controllers/user');
-const db = require('../db/models/');
-const User = db.User;
 
 /******************************/
 /* http://<domain>/v1/account */
