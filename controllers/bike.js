@@ -12,6 +12,7 @@ async function getById(id) {
 async function create(bikeParam) {
 	console.log(bikeParam)
 	const bike = Bike.build(bikeParam);
+	bike.owner = bikeParam.id;
 	await bike.save();
 }
 
