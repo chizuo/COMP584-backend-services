@@ -21,7 +21,7 @@ module.exports = server;
 // Start server only if start via command land, ignores during unit testing.
 if(require.main === module) {
     const port = process.env.PORT || 1584;
-    sequelize.sync({ force: true }).then(() => {
+    sequelize.sync({ force: false }).then(() => {
 			server.listen((port), () => {
 					console.log(`Service is listening on port: ${port}`);
 			});
