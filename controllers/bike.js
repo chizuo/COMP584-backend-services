@@ -1,5 +1,5 @@
 const db = require('../db/models/');
-const Bike = db.Bike;
+const Bike = db.Bicycle;
 
 async function getAll() {
 	return await Bike.findAll();
