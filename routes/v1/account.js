@@ -23,8 +23,12 @@ router.post('/register', async (req,res,next) => {
 // GET end point for account login
 router.get('/login', async (req, res, next) => {
 	const auth = new Buffer.from(req.headers.authorization.split(' ')[1], 'base64').toString().split(':');
+<<<<<<< HEAD
 	const login = { username: auth[0], password: auth[1] }
 	console.log(login);
+=======
+  const login = { username: auth[0], password: auth[1] }
+>>>>>>> 9b1d08c (login route fixed)
 	userController.authenticate(login)
 		.then(user => user ? res.status(201).json(user) : res.status(400).json({ message: 'Username or password is incorrect' }))
 		.catch(err => next(err)); 
