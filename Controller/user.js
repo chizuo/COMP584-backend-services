@@ -1,21 +1,21 @@
 const userDB = new Map();
 
-exports.createUser = (user, data) => {
+exports.create = (data) => {
     return new Promise( (resolve, reject) => {
-        if(!userDB.has(user)) { 
-            userDB.set(user, data); 
+        if(!userDB.has(data.username)) { 
+            userDB.set(data.username, data); 
             resolve(data);
         } else {
-            reject(new Error(`${user} is taken`));
+            reject(new Error(`${data.username} is taken`));
         }
     });
 }
 
-exports.getUser = (user, pw) => {
+exports.authenticate = (data) => {
     return new Promise( (resolve, reject) => {
-        if(userDB.has(user)) {
-            let data = userDB.get(user);
-            if(data.password == pw) resolve(data);
+        if(userDB.has(data.username)) {
+            let response = userDB.get(data.username);
+            if(response.password == pw) resolve(data.password);
             else reject(new Error(`${pw} is incorrect`));
         } else {
             reject(new Error(`${user} does not exit`));
