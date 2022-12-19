@@ -11,11 +11,10 @@ async function getById(id) {
 
 async function create(bikeParam) {
 	const bike = Bike.build(bikeParam);
-	console.log(bike);
-	bike.owner = bikeParam.id;
-	console.log(bike);
+	bike.owner = bikeParam.userId;
 	try {
 		await bike.save();
+		return bike;
 	} catch (err) {
 		console.log(err);
 	}

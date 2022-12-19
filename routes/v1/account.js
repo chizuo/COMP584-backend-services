@@ -17,14 +17,12 @@ router.post('/register', async (req,res,next) => {
 			userController.authenticate(login)
 				.then(user => user ? res.status(200).json(user) : res.status(400).json({ message: 'an Insert Error occurred' }))
 		}).catch(err => next(err)); 
-
 });
 
 // GET end point for account login
 router.get('/login', async (req, res, next) => {
-
-	const auth = new Buffer.from(req.headers.authorization.split(' ')[1], 'base64').toString().split(':');
-	const login = { username: auth[0], password: auth[1] }
+	const { username, password } = req.body;	
+	const login = { username: username, password: password }
 	userController.authenticate(login)
 		.then(user => user ? res.status(201).json(user) : res.status(400).json({ message: 'Username or password is incorrect' }))
 		.catch(err => next(err)); 
