@@ -11,7 +11,7 @@ const userController = require('../../controllers/user');
 router.post('/register', async (req,res,next) => {
 	/*
 	const user = req.body;
-	const token = jwt.sign({ sub: req.body.username }, "LOL MUCH SECRET", { expiresIn: '7d' });
+	/*const token = jwt.sign({ sub: req.body.username }, "LOL MUCH SECRET", { expiresIn: '7d' });
 	user.token = token;
 	console.log(user);
 	res.status(200).json(user);
@@ -23,7 +23,7 @@ router.post('/register', async (req,res,next) => {
 
 // GET end point for account login
 router.get('/login', async (req, res, next) => {
-	const auth = new Buffer.from(req.headers.authorization.split(' ')[1], 'base64').toString().split(':');
+	/*const auth = new Buffer.from(req.headers.authorization.split(' ')[1], 'base64').toString().split(':');
 	const login = { username: auth[0], password: auth[1] }
 	/*const token = jwt.sign({ sub: login.username }, "LOL MUCH SECRET", { expiresIn: '7d' });
 	const user = { username: login.username }
@@ -31,7 +31,7 @@ router.get('/login', async (req, res, next) => {
 	res.status(201).json(user); */
 	userController.authenticate(login)
 		.then(user => user ? res.status(201).json(user) : res.status(400).json({ message: 'Username or password is incorrect' }))
-		.catch(err => next(err)); 
+		.catch(err => next(err));
 });
 
 module.exports = router;

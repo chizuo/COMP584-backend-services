@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const routes = require('./routes');
 const jwt = require('./utils/jwt');
 const cors = require('cors');
@@ -8,7 +9,8 @@ const server = express();
 server.use(express.urlencoded({ extended: false }));
 server.use(express.json());
 server.use(cors());
-server.use(jwt());
+server.use(express.static(path.join(__dirname,'../client/build')))
+//server.use(jwt());
 server.use('/', routes);
 server.use(errorHandler);
 
@@ -19,7 +21,9 @@ module.exports = server;
 if(require.main === module) {
 
     const port = process.env.PORT || 1584;
-    server.listen((port), () => {
+    sequelize.sync({
+    force: true
+}).then(server.listen((port), () => {
         console.log(`Service is listening on port: ${port}`);
-    });
+    }));
 }
