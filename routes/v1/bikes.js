@@ -24,9 +24,9 @@ const filefilter = (req, file, cb) => {
 const upload = multer({ storage: storage, fileFilter: filefilter });
 
 router.get('/', async (req, res, next) => {
-		bikeController.getAll()
-		.then(bikes => res.status(200).json(bikes))
-		.catch(err => next(err));
+	bikeController.getAll()
+	.then(bikes => res.status(200).json(bikes))
+	.catch(err => next(err));
 });
 
 router.post('/', async (req, res, next) => {
