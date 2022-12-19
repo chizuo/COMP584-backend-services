@@ -12,7 +12,6 @@ async function getById(id) {
 }
 
 async function create(userParam) {
-	console.log(userParam)
     // validate
     if (await User.findOne({where: { username: userParam.username }})) {
         throw 'Username "' + userParam.username + '" is already taken';

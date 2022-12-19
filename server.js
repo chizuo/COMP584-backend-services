@@ -11,7 +11,7 @@ server.use(express.urlencoded({ extended: false }));
 server.use(express.json());
 server.use(cors());
 server.use(express.static(path.join(__dirname,'../client/build')))
-//server.use(jwt());
+server.use(jwt());
 server.use('/', routes);
 server.use(errorHandler);
 
@@ -20,7 +20,6 @@ module.exports = server;
 
 // Start server only if start via command land, ignores during unit testing.
 if(require.main === module) {
-
     const port = process.env.PORT || 1584;
     db.sequelize.sync({ force: true }).then(server.listen((port), () => {
         console.log(`Service is listening on port: ${port}`);
