@@ -5,6 +5,7 @@ const jwt = require('./utils/jwt');
 const cors = require('cors');
 const errorHandler = require('./utils/errorHandler');
 const server = express();
+const db = require('./db/models');
 
 server.use(express.urlencoded({ extended: false }));
 server.use(express.json());
@@ -21,9 +22,7 @@ module.exports = server;
 if(require.main === module) {
 
     const port = process.env.PORT || 1584;
-    sequelize.sync({
-    force: true
-}).then(server.listen((port), () => {
+    db.sequelize.sync({ force: true }).then(server.listen((port), () => {
         console.log(`Service is listening on port: ${port}`);
     }));
 }
