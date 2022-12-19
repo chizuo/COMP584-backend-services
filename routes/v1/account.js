@@ -52,7 +52,7 @@ router.put('/updateInfo', async(req, res, next) => {
 		let response = await accountController.updateUser(req.body.username, req.body);
 		res.status(200).send(response);
 	} catch(error) {
-		res.status(404).send(error);
+		res.status(404).send(error.message);
 	}
 });
 
@@ -61,7 +61,7 @@ router.put('/updatePassword', async(req, res, next) => {
 		let response = await accountController.updatePassword(req.body.username, req.body.password, req.body.newpw);
 		res.status(200).send(response);
 	} catch(error) {
-		res.status(404).send(error);
+		res.status(404).send(error.message);
 	}
 });
 
