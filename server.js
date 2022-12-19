@@ -4,6 +4,7 @@ const routes = require('./routes');
 const jwt = require('./utils/jwt');
 const cors = require('cors');
 const errorHandler = require('./utils/errorHandler');
+const { sequelize } = require('./db/models');
 const server = express();
 const db = require('./db/models');
 
@@ -21,7 +22,16 @@ module.exports = server;
 // Start server only if start via command land, ignores during unit testing.
 if(require.main === module) {
     const port = process.env.PORT || 1584;
+<<<<<<< HEAD
     db.sequelize.sync({ force: true }).then(server.listen((port), () => {
         console.log(`Service is listening on port: ${port}`);
     }));
 }
+=======
+    sequelize.sync({ force: true }).then(() => {
+			server.listen((port), () => {
+					console.log(`Service is listening on port: ${port}`);
+			});
+		});
+}
+>>>>>>> 0e7350f (fix photo assoc.)
