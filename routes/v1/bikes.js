@@ -30,9 +30,10 @@ router.get('/', async (req, res, next) => {
 });
 
 router.post('/', async (req, res, next) => {
-		bikeController.create(req.body)
-		.then(bike => res.status(200).json(bike))
-		.catch(err => next(err));
+	console.log(req.body);
+	bikeController.create(req.body)
+	.then(bike => res.status(200).json(bike))
+	.catch(err => next(err));
 });
 
 router.get('/:id', async (req, res, next) => {
