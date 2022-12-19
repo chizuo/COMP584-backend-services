@@ -6,7 +6,7 @@ async function getAll() {
 }
 
 async function getById(id) {
-	return await Bike.findById(id);
+	return await Bike.findOne({ where: {id: id } });
 }
 
 async function create(bikeParam) {
@@ -16,7 +16,7 @@ async function create(bikeParam) {
 }
 
 async function update(id, body) {
-	const bike = await Bike.findById(id);
+	const bike = await Bike.findOne({ where: {id: id } });
 	Object.assign(bike, body);
 	await bike.save();
 }
