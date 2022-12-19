@@ -8,7 +8,7 @@ async function getAll() {
 }
 
 async function getById(id) {
-    return await User.findById(id);
+    return await User.findOne({where: { id: id}});
 }
 
 async function create(userParam) {
