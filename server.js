@@ -11,7 +11,6 @@ server.use(express.urlencoded({ extended: false }));
 server.use(express.json());
 server.use(cors());
 server.use(express.static(path.join(__dirname,'../client/build')))
-server.use(jwt());
 server.use('/', routes);
 server.use(errorHandler);
 
