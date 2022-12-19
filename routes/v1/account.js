@@ -24,6 +24,7 @@ router.post('/register', async (req,res,next) => {
 router.get('/login', async (req, res, next) => {
 	const auth = new Buffer.from(req.headers.authorization.split(' ')[1], 'base64').toString().split(':');
 	const login = { username: auth[0], password: auth[1] }
+	console.log(login);
 	userController.authenticate(login)
 		.then(user => user ? res.status(201).json(user) : res.status(400).json({ message: 'Username or password is incorrect' }))
 		.catch(err => next(err)); 
