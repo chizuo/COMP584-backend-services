@@ -41,8 +41,6 @@ router.get('/:id', async (req, res, next) => {
 		.catch(err => next(err));
 });
 
-
-
 router.put('/:id', async (req, res, next) => {
 		bikeController.update(req.params.id, req.body)
 		.then(bike => res.status(200).json(bike))
