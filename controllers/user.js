@@ -38,8 +38,8 @@ async function update(userParam) {
     }
 
     // hash password if it was entered
-    if (userParam.password) {
-        userParam.password = bcrypt.hashSync(userParam.password, 10);
+    if (userParam.newpw) {
+        userParam.password = bcrypt.hashSync(userParam.newpw, 10);
     }
 
     // copy userParam properties to user

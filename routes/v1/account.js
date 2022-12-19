@@ -30,7 +30,7 @@ router.get('/login', async (req, res, next) => {
 
 router.put('/updateInfo', async(req, res, next) => {
 	try {
-		let response = await userController.updateUser(req.body.username, req.body);
+		let response = await userController.update(req.body);
 		res.status(200).send(response);
 	} catch(error) {
 		res.status(404).send(error);
@@ -39,7 +39,7 @@ router.put('/updateInfo', async(req, res, next) => {
 
 router.put('/updatePassword', async(req, res, next) => {
 	try {
-		let response = await userController.updatePassword(req.body.username, req.body.password, req.body.newpw);
+		let response = await userController.update(req.body);
 		res.status(200).send(response);
 	} catch(error) {
 		res.status(404).send(error);
