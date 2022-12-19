@@ -2,23 +2,23 @@ const db = require('../db/models/');
 const Bike = db.Bike;
 
 async function getAll() {
-		return await Bike.findAll();
+	return await Bike.findAll();
 }
 
 async function getById(id) {
-		return await Bike.findById(id);
+	return await Bike.findById(id);
 }
 
 async function create(bikeParam) {
-		console.log(bikeParam)
-		const bike = Bike.build(bikeParam);
-		await bike.save();
+	console.log(bikeParam)
+	const bike = Bike.build(bikeParam);
+	await bike.save();
 }
 
 async function update(id, body) {
-		const bike = await Bike.findById(id);
-		Object.assign(bike, body);
-		await bike.save();
+	const bike = await Bike.findById(id);
+	Object.assign(bike, body);
+	await bike.save();
 }
 
 async function search(query) {
