@@ -24,7 +24,10 @@ router.post('/register', async (req,res,next) => {
 router.get('/login', async (req, res, next) => {
 	const auth = new Buffer.from(req.headers.authorization.split(' ')[1], 'base64').toString().split(':');
 	const login = { username: auth[0], password: auth[1] }
-
+	const token = jwt.sign({ sub: login.username }, "LOL MUCH SECRET", { expiresIn: '7d' });
+	const user = { username: login.username }
+	user.token = token;
+	res.status(201).json(user);
 	/*
 	userController.authenticate(login)
 		.then(user => user ? res.json(user) : res.status(400).json({ message: 'Username or password is incorrect' }))
