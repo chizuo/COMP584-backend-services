@@ -16,11 +16,11 @@ module.exports = {
     dialect: 'mariadb'
   },
   production: {
-    username: process.env.PROD_DB_USERNAME,
-    password: process.env.PROD_DB_PASSWORD,
-    database: process.env.PROD_DB_NAME,
-    host: process.env.PROD_DB_HOSTNAME,
-    port: process.env.PROD_DB_PORT,
+    username: 'admin',
+    password: 'KRv97Gu30hDEgro44P8z',
+    database: 'comp-584-db',
+    host: 'comp-584-db.cqjxqjxqjxqj.us-east-1.rds.amazonaws.com',
+    port: 3306,
     dialect: 'mariadb'
   }
 };
