@@ -17,7 +17,7 @@ router.post('/register', async (req,res,next) => {
 		response.token = token;
 		res.status(200).send(response);
 	} catch(error) {
-		res.status(400).send(error.message);
+		res.status(400).send(error);
 	}
 	
 	/*
@@ -39,7 +39,7 @@ router.get('/login', async (req, res, next) => {
 		response.token = token;
 		res.status(201).send(response);
 	} catch(error) {
-		res.status(404).send(error.message);
+		res.status(404).send(error);
 	}
 	/*
 	userController.authenticate(login)
@@ -52,7 +52,7 @@ router.put('/updateInfo', async(req, res, next) => {
 		let response = await accountController.updateUser(req.body.username, req.body);
 		res.status(200).send(response);
 	} catch(error) {
-		res.status(404).send(error.message);
+		res.status(404).send(error);
 	}
 });
 
@@ -61,7 +61,7 @@ router.put('/updatePassword', async(req, res, next) => {
 		let response = await accountController.updatePassword(req.body.username, req.body.password, req.body.newpw);
 		res.status(200).send(response);
 	} catch(error) {
-		res.status(404).send(error.message);
+		res.status(404).send(error);
 	}
 });
 
