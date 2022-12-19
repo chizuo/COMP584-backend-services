@@ -9,15 +9,16 @@ const userController = require('../../controllers/user');
 
 // POST end point for account sign-up 
 router.post('/register', async (req,res,next) => {
+	/*
 	const user = req.body;
 	const token = jwt.sign({ sub: req.body.username }, "LOL MUCH SECRET", { expiresIn: '7d' });
 	user.token = token;
 	console.log(user);
 	res.status(200).json(user);
-	/*
+	*/
 	userController.create(req.body)
 		.then(user => res.status(200).json(user))
-		.catch(err => next(err)); */
+		.catch(err => next(err));
 });
 
 // GET end point for account login
