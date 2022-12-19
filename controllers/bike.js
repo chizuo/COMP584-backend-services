@@ -10,10 +10,15 @@ async function getById(id) {
 }
 
 async function create(bikeParam) {
-	console.log(bikeParam)
 	const bike = Bike.build(bikeParam);
+	console.log(bike);
 	bike.owner = bikeParam.id;
-	await bike.save();
+	console.log(bike);
+	try {
+		await bike.save();
+	} catch (err) {
+		console.log(err);
+	}
 }
 
 async function update(id, body) {

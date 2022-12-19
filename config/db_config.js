@@ -1,9 +1,9 @@
 module.exports = {
   development: {
-    username: 'admin',
-    password: 'KRv97Gu30hDEgro44P8z',
+    username: 'root',
+    password: 'root',
     database: 'comp_584_db',
-    host: 'comp-584-db.czdqbrm9nfoa.us-east-1.rds.amazonaws.com',
+    host: 'localhost',
     port: 3306,
     dialect: 'mariadb'
   },

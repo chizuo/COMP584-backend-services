@@ -37,6 +37,7 @@ module.exports = (sequelize, DataTypes) => {
       tires: DataTypes.STRING,
       wheels: DataTypes.STRING,
       accessories: DataTypes.STRING,
+			owner: DataTypes.INTEGER,
     },
     {
       sequelize,
