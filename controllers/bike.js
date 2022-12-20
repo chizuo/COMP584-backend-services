@@ -30,7 +30,7 @@ async function search(query) {
 		return await Bike.findAll({
 				where: {
 						title: {
-							[Op.like]: `%${query}%`
+							[Op.like]: `%${query.title}%`
 						}
 				}
 		});

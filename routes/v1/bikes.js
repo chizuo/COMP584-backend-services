@@ -37,9 +37,10 @@ router.post('/', async (req, res, next) => {
 });
 
 router.get('/:id', async (req, res, next) => {
-		bikeController.getById(req.params.id)
-		.then(bike => bike ? res.status(200).json(bike) : res.status(404).json({ message: 'Bike not found' }))
-		.catch(err => next(err));
+	console.log("get id")
+	bikeController.getById(req.params.id)
+	.then(bike => bike ? res.status(200).json(bike) : res.status(404).json({ message: 'Bike not found' }))
+	.catch(err => next(err));
 });
 
 router.put('/:id', async (req, res, next) => {
@@ -48,10 +49,11 @@ router.put('/:id', async (req, res, next) => {
 		.catch(err => next(err));
 });
 
-router.get('/search', async (req, res, next) => {
-		bikeController.search(req.query)
-		.then(bikes => res.status(200).json(bikes))
-		.catch(err => next(err));
+router.get('/searchbar/search', async (req, res, next) => {
+	console.log(req.query);
+	bikeController.search(req.query)
+	.then(bikes => res.status(200).json(bikes))
+	.catch(err => next(err));
 });
 
 router.get('/:id/photos', async (req, res, next) => {
